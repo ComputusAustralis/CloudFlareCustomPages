@@ -25,13 +25,14 @@
           top: 14px;
           left: 25px;
           margin: 0;
+          display: none;
       }
 
       h2 {
           font-size: 50px;
           background: -webkit-linear-gradient(rgb(255, 255, 255), rgb(234, 230, 255));
-          -webkit-background-clip: text;
-          -webkit-text-fill-color: transparent;
+          -webkit-background-clip: text !important;
+          -webkit-text-fill-color: transparent !important;
           font-weight: 900;
           text-align: center;
           width: 100vw;
@@ -66,7 +67,7 @@
     <div class="uk-child-width-1-2@m" uk-grid>
       <div>
         <h3>What happened?</h3>
-        <p id="cf_error_txt">::CLOUDFLARE_ERROR_1000S_BOX::</p>
+        ::CLOUDFLARE_ERROR_1000S_BOX::
       </div>
       <div>
         <h3>What can I do?</h3>
@@ -116,8 +117,5 @@
 <script>
     const CF_error_class = document.getElementById('cloudflare_error_info');
     document.getElementById('cf_error_no_txt').innerHTML = CF_error_class.children[0].children[0].innerHTML;
-    document.getElementById('cf_error_txt').innerHTML = CF_error_class.children[0].children[1].innerHTML;
-    document.getElementById('cf_error_txt').innerHTML += '<br><ul class="uk-list">' + CF_error_class.children[0].children[2].innerHTML + '</ul>';
-    document.getElementById('cf_location').innerHTML = CF_error_class.children[0].children[3].children[5].innerHTML + ' • ';
 </script>
 </html>
