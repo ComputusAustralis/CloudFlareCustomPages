@@ -10,3 +10,5 @@ Error 1XXX: <https://fraeio.github.io/CloudFlareCustomPages/1XXX.html>
 
 Always Online: <https://fraeio.github.io/CloudFlareCustomPages/AlwaysOnline.html>
 
+Under Attack: <https://fraeio.github.io/CloudFlareCustomPages/ImUnderAttack.html>
+
