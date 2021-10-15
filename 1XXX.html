@@ -66,7 +66,7 @@
     <div class="uk-child-width-1-2@m" uk-grid>
       <div>
         <h3>What happened?</h3>
-        <p id="cf_error_txt"></p>
+        <p id="cf_error_txt">::CLOUDFLARE_ERROR_1000S_BOX::</p>
       </div>
       <div>
         <h3>What can I do?</h3>
@@ -76,7 +76,7 @@
           <br>
           <b>If you're the owner of this website:</b><br>
           Contact your hosting provider letting them know your web server is not completing requests.
-          <a href="https://support.cloudflare.com/hc/en-us/articles/115003011431-Troubleshooting-Cloudflare-5XX-errors" target="_blank">Additional troubleshooting information here.</a>
+          <a href="https://support.cloudflare.com/hc/en-us/articles/360029779472-Troubleshooting-Cloudflare-1XXX-errors" target="_blank">Additional troubleshooting information here.</a>
         </p>
       </div>
     </div>
@@ -88,15 +88,36 @@
 </div>
 <div hidden id="cloudflare_error_info">
   ::CLOUDFLARE_ERROR_1000S_BOX::
+<!--  <div class="cf-error-details cf-error-1001">-->
+<!--    <h1>DNS resolution error</h1>-->
+<!--    <p>You've requested a page on a website (cloudflarepreview.com) that is on the-->
+<!--      <a data-orig-proto="https" data-orig-ref="www.cloudflare.com" target="_blank">Cloudflare</a> network. Cloudflare is currently unable to resolve your requested domain (cloudflarepreview.com). There are two potential causes of this:-->
+<!--    </p>-->
+<!--    <ul>-->
+<!--      <li>-->
+<!--        <strong>Most likely:</strong> if the owner just signed up for Cloudflare it can take a few minutes for the website's information to be distributed to our global network.-->
+<!--      </li>-->
+<!--      <li>-->
+<!--        <strong>Less likely:</strong> something is wrong with this site's configuration. Usually this happens when accounts have been signed up with a partner organization (e.g., a hosting provider) and the provider's DNS fails.-->
+<!--      </li>-->
+<!--    </ul>-->
+<!--    <ul class="cferror_details">-->
+<!--      <li>Ray ID: 000000000000000</li>-->
+<!--      <li>Timestamp: Thu, 01-Jan-70 00:00:00 GMT</li>-->
+<!--      <li>Your IP address: 2001:8000:1368:f01:307b:546:2a3a:c7c3</li>-->
+<!--      <li class="XXX_no_wrap_overflow_hidden">Requested URL: example.url/foo</li>-->
+<!--      <li>Error reference number: 1001</li>-->
+<!--      <li>Server ID: FL_FOO</li>-->
+<!--      <li>User-Agent: Example User Agent</li>-->
+<!--    </ul>-->
+<!--  </div>-->
 </div>
 </body>
 <script>
     const CF_error_class = document.getElementById('cloudflare_error_info');
-    const cf_txt = CF_error_class.children[0].children[1].innerHTML ?? 'Unable to find reason.';
-    const cf_error_no = CF_error_class.children[0].children[2].children[2].innerHTML.replace('Error reference number: ', '') ?? 'Error 1XXXX';
-    const cf_location = CF_error_class.children[0].children[2].children[3].innerHTML;
-    document.getElementById('cf_error_txt').innerHTML = cf_txt;
-    document.getElementById('cf_error_no_txt').innerHTML = CF_error_class.children[0].children[0].innerHTML ?? 'Unable to find reason.';
-    document.getElementById('cf_location').innerHTML = cf_location + ' • ';
+    document.getElementById('cf_error_no_txt').innerHTML = CF_error_class.children[0].children[0].innerHTML;
+    document.getElementById('cf_error_txt').innerHTML = CF_error_class.children[0].children[1].innerHTML;
+    document.getElementById('cf_error_txt').innerHTML += '<br><ul class="uk-list">' + CF_error_class.children[0].children[2].innerHTML + '</ul>';
+    document.getElementById('cf_location').innerHTML = CF_error_class.children[0].children[3].children[5].innerHTML + ' • ';
 </script>
 </html>
