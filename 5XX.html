@@ -1,8 +1,128 @@
 <html lang="en">
 <head>
-  <title>test</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>500 Class Error - Fraeio</title>
+  <meta name="robots" content="noindex">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=K2D:wght@400;800&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.7.6/dist/css/uikit.min.css"/>
+  <script src="https://cdn.jsdelivr.net/npm/uikit@3.7.6/dist/js/uikit.min.js"></script>
+  <style>
+      * {
+          font-family: 'K2D', sans-serif !important;
+          color: #575757;
+          box-sizing: border-box;
+      }
+
+      body {
+          margin: 0;
+          background: #fff;
+      }
+
+      h1 {
+          position: absolute;
+          top: 14px;
+          left: 25px;
+          margin: 0;
+      }
+
+      h2 {
+          font-size: 50px;
+          background: -webkit-linear-gradient(rgb(255, 255, 255), rgb(234, 230, 255));
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          font-weight: 900;
+          text-align: center;
+          width: 100vw;
+          padding: 25px 0;
+      }
+
+      .red-banner {
+          margin-top: 75px;
+          background-image: radial-gradient(circle farthest-corner at 12.3% 19.3%, rgba(255, 0, 0, 0.82) 0%, rgba(255, 0, 0, 0.6) 100.2%);
+      }
+
+      .center {
+          width: 100%;
+          padding: 25px 25px;
+          margin: 25px auto;
+          border-radius: 8px;
+      }
+
+      hr {
+          border-color: #c4c4c4 !important;
+          color: #c4c4c4 !important;
+      }
+  </style>
 </head>
 <body>
-::CLOUDFLARE_ERROR_500S_BOX::
+<!--<h1>Additional</h1>-->
+<div class="red-banner">
+  <h2 id="cf_error_no_txt">500 Class Error</h2>
+</div>
+<div class="uk-container uk-container-large">
+  <div class="center" style="background: #fff8f8;">
+    <div class="uk-child-width-1-2@m" uk-grid>
+      <div>
+        <h3>What happened?</h3>
+        <p id="cf_error_txt"></p>
+      </div>
+      <div>
+        <h3>What can I do?</h3>
+        <p>
+          <b>If you're a visitor of this website:</b><br>
+          Please try again in a few minutes.<br>
+          <br>
+          <b>If you're the owner of this website:</b><br>
+          Contact your hosting provider letting them know your web server is not completing requests.
+          <a href="https://support.cloudflare.com/hc/en-us/articles/115003011431-Troubleshooting-Cloudflare-5XX-errors" target="_blank">Additional troubleshooting information here.</a>
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="center" style="margin-top: 40px;text-align: center; padding-top: 25px; border-top: 1px solid #ababab;border-radius: 0;">
+    <small>Ray ID: ::RAY_ID:: • Your IP: ::CLIENT_IP:: • <span id="cf_location"></span>
+      <a href="https://support.frae.io" target="_blank">Fraeio Support</a></small>
+  </div>
+</div>
+<div hidden id="cloudflare_error_info">
+  ::CLOUDFLARE_ERROR_500S_BOX::
+<!--  <div class="cf-error-details cf-error-522">-->
+<!--    <h1>Connection timed out</h1>-->
+<!--    <p data-translate="connection_timed_out">The initial connection between Cloudflare's network and the origin web server timed out. As a result, the web page can not be displayed.</p>-->
+<!--    <ul class="cferror_details">-->
+<!--      <li>Ray ID: 000000000000000</li>-->
+<!--      <li>Your IP address: 2001:8000:1368:f01:307b:546:2a3a:c7c3</li>-->
+<!--      <li>Error reference number: 522</li>-->
+<!--      <li>Cloudflare Location: POP: undef</li>-->
+<!--    </ul>-->
+<!--  </div>-->
+</div>
 </body>
+<script>
+  let error_messages = {
+    '500': 'Internal server error',
+    '502': 'Bad gateway',
+    '503': 'Service temporarily unavailable',
+    '504': 'Gateway timeout',
+    '520': 'Web server returns an unknown error',
+    '521': 'Web server is down',
+    '522': 'Connection timed out',
+    '523': 'Origin is unreachable',
+    '524': 'A timeout occurred',
+    '525': 'SSL handshake failed',
+    '526': 'Invalid SSL certificate',
+    '527': 'Railgun Listener to origin error',
+    '530': 'A 1xxx Error',
+  };
+
+  const CF_error_class = document.getElementById('cloudflare_error_info');
+  const cf_txt = CF_error_class.children[0].children[1].innerHTML ?? 'Unable to find reason.';
+  const cf_error_no = CF_error_class.children[0].children[2].children[2].innerHTML.replace('Error reference number: ', '') ?? 'Error 5XX';
+  const cf_location = CF_error_class.children[0].children[2].children[3].innerHTML;
+  document.getElementById('cf_error_txt').innerHTML = cf_txt;
+  document.getElementById('cf_error_no_txt').innerHTML = error_messages[cf_error_no];
+  document.getElementById('cf_location').innerHTML = cf_location + ' • ';
+</script>
 </html>
