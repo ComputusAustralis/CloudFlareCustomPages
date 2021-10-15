@@ -2,7 +2,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>500 Class Error - Fraeio</title>
+  <title>1000 Class Error - Fraeio</title>
   <meta name="robots" content="noindex">
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=K2D:wght@400;800&amp;display=swap" rel="stylesheet">
@@ -59,7 +59,7 @@
 <body>
 <!--<h1>Additional</h1>-->
 <div class="red-banner">
-  <h2 id="cf_error_no_txt">500 Class Error</h2>
+  <h2 id="cf_error_no_txt">1000 Class Error</h2>
 </div>
 <div class="uk-container uk-container-large">
   <div class="center" style="background: #fff8f8;">
@@ -87,26 +87,16 @@
   </div>
 </div>
 <div hidden id="cloudflare_error_info">
-  ::CLOUDFLARE_ERROR_500S_BOX::
-<!--  <div class="cf-error-details cf-error-522">-->
-<!--    <h1>Connection timed out</h1>-->
-<!--    <p data-translate="connection_timed_out">The initial connection between Cloudflare's network and the origin web server timed out. As a result, the web page can not be displayed.</p>-->
-<!--    <ul class="cferror_details">-->
-<!--      <li>Ray ID: 000000000000000</li>-->
-<!--      <li>Your IP address: 2001:8000:1368:f01:307b:546:2a3a:c7c3</li>-->
-<!--      <li>Error reference number: 522</li>-->
-<!--      <li>Cloudflare Location: POP: undef</li>-->
-<!--    </ul>-->
-<!--  </div>-->
+  ::CLOUDFLARE_ERROR_1000S_BOX::
 </div>
 </body>
 <script>
-  const CF_error_class = document.getElementById('cloudflare_error_info');
-  const cf_txt = CF_error_class.children[0].children[1].innerHTML ?? 'Unable to find reason.';
-  const cf_error_no = CF_error_class.children[0].children[2].children[2].innerHTML.replace('Error reference number: ', '') ?? 'Error 5XX';
-  const cf_location = CF_error_class.children[0].children[2].children[3].innerHTML;
-  document.getElementById('cf_error_txt').innerHTML = cf_txt;
-  document.getElementById('cf_error_no_txt').innerHTML = CF_error_class.children[0].children[0].innerHTML ?? 'Unable to find reason.';
-  document.getElementById('cf_location').innerHTML = cf_location + ' • ';
+    const CF_error_class = document.getElementById('cloudflare_error_info');
+    const cf_txt = CF_error_class.children[0].children[1].innerHTML ?? 'Unable to find reason.';
+    const cf_error_no = CF_error_class.children[0].children[2].children[2].innerHTML.replace('Error reference number: ', '') ?? 'Error 1XXXX';
+    const cf_location = CF_error_class.children[0].children[2].children[3].innerHTML;
+    document.getElementById('cf_error_txt').innerHTML = cf_txt;
+    document.getElementById('cf_error_no_txt').innerHTML = CF_error_class.children[0].children[0].innerHTML ?? 'Unable to find reason.';
+    document.getElementById('cf_location').innerHTML = cf_location + ' • ';
 </script>
 </html>
