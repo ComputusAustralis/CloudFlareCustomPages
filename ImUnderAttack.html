@@ -1,0 +1,61 @@
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Just a moment...</title>
+  <meta name="robots" content="noindex">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=K2D:wght@400;800&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.7.6/dist/css/uikit.min.css"/>
+  <script src="https://cdn.jsdelivr.net/npm/uikit@3.7.6/dist/js/uikit.min.js"></script>
+  <style>
+      .frae-loading > div {
+          position: absolute;
+          left: 50%;
+          top: calc(50% - 10px);
+          transform: translate(-50%, -50%);
+      }
+
+      .frae-loading_1 {
+          color: #ff01fb;
+          transform: scale(0.99) translate(-50%, -50%) rotate(120deg) !important;
+      }
+
+      .frae-loading_2 {
+          color: #00f3ff;
+          transform: scale(1) translate(-50%, -50%) rotate(-120deg) !important;
+      }
+
+      .frae-loading_3 {
+          color: #8b00ff;
+          transform: scale(1.01) translate(-50%, -50%) rotate(0deg) !important;
+      }
+
+  </style>
+</head>
+<body>
+<div class="fraeconnect-landing uk-section uk-section-muted" uk-height-viewport style="position:absolute;top:0;width:100%;">
+  <div class="frae-loading uk-animation-fade">
+    <div class="frae-loading_1" uk-spinner="ratio: 4"></div>
+    <div class="frae-loading_2" uk-spinner="ratio: 4"></div>
+    <div class="frae-loading_3" uk-spinner="ratio: 4"></div>
+  </div>
+  <span class="uk-animation-fade uk-text-center" style="
+    margin: auto;
+    top: 50%;
+    padding-left: 10px;
+    width: 80%;
+    transform: translate(-50%, 60px);
+    position: absolute;
+    left: 50%;
+    ">
+    <b>Checking your browser before accessing exampledomain.com.</b><br>
+    <small>This process is automatic. Your browser will redirect to your requested content shortly.</small><br>
+    <small>Please allow up to 5 seconds…</small>
+    </span>
+</div>
+<div hidden>
+  ::IM_UNDER_ATTACK_BOX::
+</div>
+</body>
+</html>
