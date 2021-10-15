@@ -6,9 +6,11 @@
   <meta name="robots" content="noindex">
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=K2D:wght@400;800&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.7.6/dist/css/uikit.min.css"/>
+  <script src="https://cdn.jsdelivr.net/npm/uikit@3.7.6/dist/js/uikit.min.js"></script>
   <style>
       * {
-          font-family: 'K2D', sans-serif;
+          font-family: 'K2D', sans-serif !important;
           color: #575757;
           box-sizing: border-box;
       }
@@ -42,9 +44,8 @@
       }
 
       .center {
-          max-width: 900px;
           width: 100%;
-          padding: 5px 25px;
+          padding: 25px 25px;
           margin: 25px auto;
           border-radius: 8px;
       }
@@ -58,14 +59,25 @@
 <body>
 <!--<h1>Additional</h1>-->
 <div class="red-banner">
-  <h2>Access denied</h2>
+  <h2>Sorry, you have been blocked</h2>
 </div>
-<div class="center" style="background: #fff8f8;">
-  <h3>What happened?</h3>
-  <p>The owner of this website has banned your IP address.</p>
-</div>
-<div class="center" style="margin-top: 40px;text-align: center; padding-top: 25px; border-top: 1px solid #ababab;border-radius: 0;">
-  <small>Ray ID: ::RAY_ID::  •  Your IP: ::CLIENT_IP::  •  <a href="https://support.frae.io" target="_blank">Fraeio Support</a></small>
+<div class="uk-container uk-container-large">
+  <div class="center" style="background: #fff8f8;">
+    <div class="uk-child-width-1-2@m" uk-grid>
+      <div>
+        <h3>Why have I been blocked?</h3>
+        <p>This website is using a security service to protect itself from online attacks. The action you just performed triggered the security solution. There are several actions that could trigger this block including submitting a certain word or phrase, a SQL command or malformed data.</p>
+      </div>
+      <div>
+        <h3>What can I do to resolve this?</h3>
+        <p>You can email the site owner or hosting provider to let them know you were blocked. Please include what you were doing when this page came up and the Ray ID found at the bottom of this page.</p>
+      </div>
+    </div>
+  </div>
+  <div class="center" style="margin-top: 40px;text-align: center; padding-top: 25px; border-top: 1px solid #ababab;border-radius: 0;">
+    <small>Ray ID: ::RAY_ID:: • Your IP: ::CLIENT_IP:: •
+      <a href="https://support.frae.io" target="_blank">Fraeio Support</a></small>
+  </div>
 </div>
 </body>
 </html>
